@@ -30,11 +30,15 @@
         {
             this.CreateBTN = new System.Windows.Forms.Button();
             this.SearchBTN = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CreateBTN
             // 
-            this.CreateBTN.Location = new System.Drawing.Point(192, 206);
+            this.CreateBTN.Location = new System.Drawing.Point(3, 3);
             this.CreateBTN.Name = "CreateBTN";
             this.CreateBTN.Size = new System.Drawing.Size(121, 23);
             this.CreateBTN.TabIndex = 0;
@@ -44,7 +48,7 @@
             // 
             // SearchBTN
             // 
-            this.SearchBTN.Location = new System.Drawing.Point(336, 206);
+            this.SearchBTN.Location = new System.Drawing.Point(133, 3);
             this.SearchBTN.Name = "SearchBTN";
             this.SearchBTN.Size = new System.Drawing.Size(132, 23);
             this.SearchBTN.TabIndex = 1;
@@ -52,15 +56,44 @@
             this.SearchBTN.UseVisualStyleBackColor = true;
             this.SearchBTN.Click += new System.EventHandler(this.SearchBTN_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::MelsConsignment.Properties.Resources.MelsLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(274, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.81022F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.18978F));
+            this.tableLayoutPanel1.Controls.Add(this.CreateBTN, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.SearchBTN, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 130);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(274, 33);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.SearchBTN);
-            this.Controls.Add(this.CreateBTN);
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(318, 181);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "HomeForm";
-            this.Text = "HomeForm";
+            this.Text = "Consignment Manager";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -69,5 +102,7 @@
 
         private System.Windows.Forms.Button CreateBTN;
         private System.Windows.Forms.Button SearchBTN;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -28,7 +28,7 @@ namespace MelsConsignment
         private void SaveBTN_Click(object sender, EventArgs e)
         {
 
-            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:MTP1946@cluster0.acccf.mongodb.net/test");
+            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:<password>@cluster0.acccf.mongodb.net/test");
 
             var dbList = dbClient.ListDatabases().ToList();
 

@@ -28,7 +28,7 @@ namespace MelsConsignment
         private void SaveBTN_Click(object sender, EventArgs e)
         {
 
-            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:<password>@cluster0.acccf.mongodb.net/test");
+            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:MTP1946@cluster0.acccf.mongodb.net/test");
 
             var dbList = dbClient.ListDatabases().ToList();
 
@@ -50,7 +50,9 @@ namespace MelsConsignment
                 {"manufacturer", ManfTB.Text },
                 {"model", ModelTB.Text },
                 {"chambering", CalTB.Text },
-                {"page", PageTB.Text }
+                {"page", PageTB.Text },
+                {"shelf", ShelfTB.Text },
+                {"take", TakeTB.Text }
             };
 
             collection.InsertOne(document);
@@ -73,6 +75,21 @@ namespace MelsConsignment
             {
                 TypeLBL.Text = "Caliber";
             }
+
+        }
+
+        private void ShelfTB_Leave(object sender, EventArgs e)
+        {
+            double percentage = .85;
+            double take = 0;
+            double salePrice = Double.Parse(ShelfTB.Text);
+
+            take = salePrice * percentage;
+
+            //round up
+            take = Math.Round(take, 2);
+
+            TakeTB.Text = take.ToString();
 
         }
     }

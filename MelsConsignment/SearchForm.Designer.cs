@@ -37,8 +37,14 @@
             this.LastNameTB = new System.Windows.Forms.TextBox();
             this.SearchBTN = new System.Windows.Forms.Button();
             this.GunsDGV = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Make = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chambering = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Take = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Page = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,12 +54,16 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Khaki;
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.TypeCMB);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -65,15 +75,16 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.GunsDGV);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 266;
+            this.splitContainer1.Size = new System.Drawing.Size(976, 450);
+            this.splitContainer1.SplitterDistance = 219;
+            this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 192);
+            this.label6.Location = new System.Drawing.Point(24, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 20;
@@ -89,7 +100,7 @@
             "Rifle",
             "Shotgun",
             "Other"});
-            this.TypeCMB.Location = new System.Drawing.Point(96, 192);
+            this.TypeCMB.Location = new System.Drawing.Point(70, 190);
             this.TypeCMB.Name = "TypeCMB";
             this.TypeCMB.Size = new System.Drawing.Size(121, 21);
             this.TypeCMB.TabIndex = 21;
@@ -140,13 +151,32 @@
             // 
             this.GunsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GunsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Type,
             this.Make,
-            this.Model});
+            this.Model,
+            this.Chambering,
+            this.Price,
+            this.Take,
+            this.Page});
             this.GunsDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GunsDGV.Location = new System.Drawing.Point(0, 0);
             this.GunsDGV.Name = "GunsDGV";
-            this.GunsDGV.Size = new System.Drawing.Size(530, 450);
+            this.GunsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GunsDGV.Size = new System.Drawing.Size(743, 446);
             this.GunsDGV.TabIndex = 0;
+            this.GunsDGV.DoubleClick += new System.EventHandler(this.GunsDGV_DoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
             // 
             // Make
             // 
@@ -158,11 +188,31 @@
             this.Model.HeaderText = "Model";
             this.Model.Name = "Model";
             // 
+            // Chambering
+            // 
+            this.Chambering.HeaderText = "Chambering";
+            this.Chambering.Name = "Chambering";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
+            // Take
+            // 
+            this.Take.HeaderText = "Take";
+            this.Take.Name = "Take";
+            // 
+            // Page
+            // 
+            this.Page.HeaderText = "Page";
+            this.Page.Name = "Page";
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(976, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "SearchForm";
             this.Text = "SearchForm";
@@ -187,7 +237,13 @@
         private System.Windows.Forms.TextBox LastNameTB;
         private System.Windows.Forms.Button SearchBTN;
         private System.Windows.Forms.DataGridView GunsDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Make;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Chambering;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Take;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Page;
     }
 }

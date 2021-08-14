@@ -42,13 +42,12 @@ namespace MelsConsignment
 
             if(consignmentDocument != null)
             {
-                int rowIndex = 0;
 
                 foreach(BsonDocument doc in consignmentDocument)
                 {
                     Console.WriteLine(doc.GetValue("model").ToString());
-                    GunsDGV.Rows.Add(doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString());
-                    rowIndex++;
+                    GunsDGV.Rows.Add(doc.GetValue("_id").ToString(),    doc.GetValue("type").ToString(),doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString()
+                        , doc.GetValue("chambering").ToString(), doc.GetValue("shelf").ToString(), doc.GetValue("take").ToString(), doc.GetValue("page").ToString());
                 }
                 
                 //Below code would be used when finding the first matching record.
@@ -68,6 +67,12 @@ namespace MelsConsignment
 
         }
 
-
+        private void GunsDGV_DoubleClick(object sender, EventArgs e)
+        {
+            ViewForm frm = new ViewForm();
+            string id = GunsDGV.SelectedRows[0].Cells[0].Value.ToString();
+            frm.SetId(id);
+            frm.Show();
+        }
     }
 }

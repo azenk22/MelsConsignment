@@ -330,6 +330,7 @@
             this.UpdateBTN.TabIndex = 0;
             this.UpdateBTN.Text = "Update";
             this.UpdateBTN.UseVisualStyleBackColor = true;
+            this.UpdateBTN.Click += new System.EventHandler(this.UpdateBTN_Click);
             // 
             // ViewForm
             // 

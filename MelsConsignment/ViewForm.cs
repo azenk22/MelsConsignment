@@ -61,6 +61,17 @@ namespace MelsConsignment
             TakeTB.Text = document.GetValue("take").ToString();
         }
 
-
+        private void UpdateBTN_Click(object sender, EventArgs e)
+        {
+            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:MTP1946@cluster0.acccf.mongodb.net/test");
+            var database = dbClient.GetDatabase("MelsTradingPost");
+            var collection = database.GetCollection<BsonDocument>("Consignment");
+            ObjectId id = GetId();
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("last_name", LastNameTB.Text).Set("first_name", FirstNameTB.Text)
+                .Set("type", TypeCMB.Text).Set("manufacturer", ManfTB.Text).Set("model", ModelTB.Text).Set("chambering", CalTB.Text)
+                .Set("page", PageTB.Text).Set("shelf", ShelfTB.Text).Set("take", TakeTB.Text);
+            collection.UpdateOne(filter, update);
+        }
     }
 }

@@ -165,13 +165,13 @@
             this.GunsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GunsDGV.Size = new System.Drawing.Size(743, 446);
             this.GunsDGV.TabIndex = 0;
+            this.GunsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GunsDGV_CellContentClick);
             this.GunsDGV.DoubleClick += new System.EventHandler(this.GunsDGV_DoubleClick);
             // 
             // id
             // 
             this.id.HeaderText = "id";
             this.id.Name = "id";
-            this.id.Visible = false;
             // 
             // Type
             // 

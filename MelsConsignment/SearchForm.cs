@@ -45,8 +45,9 @@ namespace MelsConsignment
 
                 foreach(BsonDocument doc in consignmentDocument)
                 {
+                    ObjectId id = doc.GetValue("_id").AsObjectId;
                     Console.WriteLine(doc.GetValue("model").ToString());
-                    GunsDGV.Rows.Add(doc.GetValue("_id").ToString(),    doc.GetValue("type").ToString(),doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString()
+                    GunsDGV.Rows.Add(doc.GetValue("_id"), doc.GetValue("type").ToString(),doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString()
                         , doc.GetValue("chambering").ToString(), doc.GetValue("shelf").ToString(), doc.GetValue("take").ToString(), doc.GetValue("page").ToString());
                 }
                 
@@ -70,9 +71,15 @@ namespace MelsConsignment
         private void GunsDGV_DoubleClick(object sender, EventArgs e)
         {
             ViewForm frm = new ViewForm();
-            string id = GunsDGV.SelectedRows[0].Cells[0].Value.ToString();
+            string idStr = GunsDGV.SelectedRows[0].Cells[0].Value.ToString();
+            ObjectId id = ObjectId.Parse(idStr);
             frm.SetId(id);
             frm.Show();
+        }
+
+        private void GunsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

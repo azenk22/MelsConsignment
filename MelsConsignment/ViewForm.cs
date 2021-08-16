@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,14 @@ namespace MelsConsignment
 {
     public partial class ViewForm : Form
     {
-        private string id;
+        private ObjectId id;
 
-        public void SetId(string id)
+        public void SetId(ObjectId id)
         {
             this.id = id;
         }
 
-        private string GetId()
+        private ObjectId GetId()
         {
             return this.id;
         }
@@ -31,6 +33,34 @@ namespace MelsConsignment
 
         private void ViewForm_Load(object sender, EventArgs e)
         {
+
+            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:MTP1946@cluster0.acccf.mongodb.net/test");
+            var database = dbClient.GetDatabase("MelsTradingPost");
+            var collection = database.GetCollection<BsonDocument>("Consignment");
+            ObjectId id = GetId();
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var document = collection.Find(filter).FirstOrDefault();
+
+            PopulateBoxes(document);
+
+            //var update = Builders<BsonDocument>.Update.Set("last_name", "TEST");
+            //collection.UpdateOne(filter, update);
+
         }
+
+        private void PopulateBoxes(BsonDocument document)
+        {
+            LastNameTB.Text = document.GetValue("last_name").ToString();
+            FirstNameTB.Text = document.GetValue("first_name").ToString();
+            TypeCMB.Text = document.GetValue("type").ToString();
+            ManfTB.Text = document.GetValue("manufacturer").ToString();
+            ModelTB.Text = document.GetValue("model").ToString();
+            CalTB.Text = document.GetValue("chambering").ToString();
+            PageTB.Text = document.GetValue("page").ToString();
+            ShelfTB.Text = document.GetValue("shelf").ToString();
+            TakeTB.Text = document.GetValue("take").ToString();
+        }
+
+
     }
 }

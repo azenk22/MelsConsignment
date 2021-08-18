@@ -73,5 +73,45 @@ namespace MelsConsignment
                 .Set("page", PageTB.Text).Set("shelf", ShelfTB.Text).Set("take", TakeTB.Text);
             collection.UpdateOne(filter, update);
         }
+
+        private IMongoCollection<BsonDocument> ConsignmentCollection()
+        {
+            MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:MTP1946@cluster0.acccf.mongodb.net/test");
+            var database = dbClient.GetDatabase("MelsTradingPost");
+            var collection = database.GetCollection<BsonDocument>("Consignment");
+
+            return collection;
+        }
+
+        private void ClearBTN_Click(object sender, EventArgs e)
+        {
+            LastNameTB.Text = "";
+            FirstNameTB.Text = "";
+            TypeCMB.Text = "";
+            ManfTB.Text = "";
+            ModelTB.Text = "";
+            CalTB.Text = "";
+            PageTB.Text = "";
+            ShelfTB.Text = "";
+            TakeTB.Text = "";
+        }
+
+        private void DeleteBTN_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Delete this listing?", "Delete?", MessageBoxButtons.YesNo);
+
+            if(result == DialogResult.Yes)
+            {
+                DeleteListing();
+            }
+        }
+
+        private void DeleteListing()
+        {
+            var collection = ConsignmentCollection();
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", GetId());
+            collection.DeleteOne(filter);
+            MessageBox.Show("Listing deleted.");
+        }
     }
 }

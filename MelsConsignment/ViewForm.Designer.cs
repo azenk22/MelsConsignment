@@ -51,6 +51,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.SaveBTN = new System.Windows.Forms.Button();
             this.UpdateBTN = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ClearBTN = new System.Windows.Forms.Button();
+            this.DeleteBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +62,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -78,7 +82,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.UpdateBTN);
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 313;
             this.splitContainer1.SplitterWidth = 10;
@@ -324,13 +328,49 @@
             // 
             // UpdateBTN
             // 
-            this.UpdateBTN.Location = new System.Drawing.Point(227, 18);
+            this.UpdateBTN.Location = new System.Drawing.Point(3, 3);
             this.UpdateBTN.Name = "UpdateBTN";
             this.UpdateBTN.Size = new System.Drawing.Size(82, 30);
             this.UpdateBTN.TabIndex = 0;
             this.UpdateBTN.Text = "Update";
             this.UpdateBTN.UseVisualStyleBackColor = true;
             this.UpdateBTN.Click += new System.EventHandler(this.UpdateBTN_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.ClearBTN, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.DeleteBTN, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.UpdateBTN, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(49, 22);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(201, 76);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // ClearBTN
+            // 
+            this.ClearBTN.Location = new System.Drawing.Point(103, 41);
+            this.ClearBTN.Name = "ClearBTN";
+            this.ClearBTN.Size = new System.Drawing.Size(82, 30);
+            this.ClearBTN.TabIndex = 2;
+            this.ClearBTN.Text = "Clear";
+            this.ClearBTN.UseVisualStyleBackColor = true;
+            this.ClearBTN.Click += new System.EventHandler(this.ClearBTN_Click);
+            // 
+            // DeleteBTN
+            // 
+            this.DeleteBTN.Location = new System.Drawing.Point(103, 3);
+            this.DeleteBTN.Name = "DeleteBTN";
+            this.DeleteBTN.Size = new System.Drawing.Size(82, 30);
+            this.DeleteBTN.TabIndex = 3;
+            this.DeleteBTN.Text = "Delete";
+            this.DeleteBTN.UseVisualStyleBackColor = true;
+            this.DeleteBTN.Click += new System.EventHandler(this.DeleteBTN_Click);
             // 
             // ViewForm
             // 
@@ -350,6 +390,7 @@
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -379,5 +420,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button SaveBTN;
         private System.Windows.Forms.Button UpdateBTN;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button ClearBTN;
+        private System.Windows.Forms.Button DeleteBTN;
     }
 }

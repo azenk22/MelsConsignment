@@ -24,6 +24,7 @@ namespace MelsConsignment
             Cursor.Current = Cursors.WaitCursor;
 
             GunsDGV.Rows.Clear();
+
             //Best place to have this code?
             //Establish connection and create collection
             MongoClient dbClient = new MongoClient("mongodb+srv://Mels105:MTP1946@cluster0.acccf.mongodb.net/test");
@@ -31,27 +32,42 @@ namespace MelsConsignment
             var collection = database.GetCollection<BsonDocument>("Consignment");
 
             //Construct filter
-            string lastName = LastNameTB.Text;
-            string firstName = FirstNameTB.Text;
+            string lastName = LastNameTB.Text.ToUpper();
+            string firstName = FirstNameTB.Text.ToUpper();
 
             var filter = Builders<BsonDocument>.Filter.Eq("last_name", lastName);
             var filter1 = Builders<BsonDocument>.Filter.Eq("first_name", firstName);
+           
+            List<BsonDocument> consignmentDocument = collection.Find(filter).ToList();
 
+            List<FilterDefinition<BsonDocument>> filters = new List<FilterDefinition<BsonDocument>>();
 
-            var consignmentDocument = collection.Find(filter & filter1).ToList();
             
 
             if(consignmentDocument != null)
             {
 
+                List<BsonDocument> docs = new List<BsonDocument>();
+
+
+                consignmentDocument = Filter(consignmentDocument);
+
                 foreach(BsonDocument doc in consignmentDocument)
                 {
-                    ObjectId id = doc.GetValue("_id").AsObjectId;
-                    Console.WriteLine(doc.GetValue("model").ToString());
-                    GunsDGV.Rows.Add(doc.GetValue("_id"), doc.GetValue("type").ToString(),doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString()
-                        , doc.GetValue("chambering").ToString(), doc.GetValue("shelf").ToString(), doc.GetValue("take").ToString(), doc.GetValue("page").ToString());
+                    GunsDGV.Rows.Add(doc.GetValue("_id"), doc.GetValue("type").ToString(), doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString()
+                            , doc.GetValue("chambering").ToString(), doc.GetValue("shelf").ToString(), doc.GetValue("take").ToString(), doc.GetValue("page").ToString());
                 }
-                
+
+                //foreach(BsonDocument doc in consignmentDocument)
+                //{
+
+
+                //    //ObjectId id = doc.GetValue("_id").AsObjectId;
+                //    //Console.WriteLine(doc.GetValue("model").ToString());
+                //    //GunsDGV.Rows.Add(doc.GetValue("_id"), doc.GetValue("type").ToString(),doc.GetValue("manufacturer").ToString(), doc.GetValue("model").ToString()
+                //    //    , doc.GetValue("chambering").ToString(), doc.GetValue("shelf").ToString(), doc.GetValue("take").ToString(), doc.GetValue("page").ToString());
+                //}
+
                 //Below code would be used when finding the first matching record.
                 //lastName = consignmentDocument.GetValue("last_name").ToString();
                 //string firstName = consignmentDocument.GetValue("first_name").ToString();
@@ -69,6 +85,38 @@ namespace MelsConsignment
 
         }
 
+        
+        private List<BsonDocument> Filter(List<BsonDocument> list)
+        {
+            bool add = true;
+            List<BsonDocument> returnList = new List<BsonDocument>();
+
+            foreach (BsonDocument doc in list)
+            {
+
+                add = true;
+
+                if (FirstNameTB.Text != "" && doc.GetValue("first_name").ToString() != FirstNameTB.Text.ToUpper())
+                {
+                    add = false;
+                }
+
+                if(TypeCMB.Text != "" && doc.GetValue("type").ToString() != TypeCMB.Text.ToUpper())
+                {
+                    add = false;
+                }
+
+                if (add)
+                {
+                    returnList.Add(doc);
+                }
+            }
+
+
+
+            return returnList;
+
+        }
         private void GunsDGV_DoubleClick(object sender, EventArgs e)
         {
             ViewForm frm = new ViewForm();

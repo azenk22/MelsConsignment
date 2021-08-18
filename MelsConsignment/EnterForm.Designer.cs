@@ -71,7 +71,7 @@
             // 
             // SaveBTN
             // 
-            this.SaveBTN.Location = new System.Drawing.Point(208, 368);
+            this.SaveBTN.Location = new System.Drawing.Point(197, 304);
             this.SaveBTN.Name = "SaveBTN";
             this.SaveBTN.Size = new System.Drawing.Size(75, 23);
             this.SaveBTN.TabIndex = 9;
@@ -275,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(299, 366);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.SaveBTN);
             this.Name = "EnterForm";

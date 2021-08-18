@@ -84,7 +84,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 190);
+            this.label6.Location = new System.Drawing.Point(24, 127);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 20;
@@ -100,7 +100,7 @@
             "Rifle",
             "Shotgun",
             "Other"});
-            this.TypeCMB.Location = new System.Drawing.Point(70, 190);
+            this.TypeCMB.Location = new System.Drawing.Point(70, 127);
             this.TypeCMB.Name = "TypeCMB";
             this.TypeCMB.Size = new System.Drawing.Size(121, 21);
             this.TypeCMB.TabIndex = 21;
@@ -139,7 +139,7 @@
             // 
             // SearchBTN
             // 
-            this.SearchBTN.Location = new System.Drawing.Point(116, 218);
+            this.SearchBTN.Location = new System.Drawing.Point(116, 170);
             this.SearchBTN.Name = "SearchBTN";
             this.SearchBTN.Size = new System.Drawing.Size(75, 23);
             this.SearchBTN.TabIndex = 15;
@@ -172,6 +172,7 @@
             // 
             this.id.HeaderText = "id";
             this.id.Name = "id";
+            this.id.Visible = false;
             // 
             // Type
             // 

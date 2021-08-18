@@ -44,15 +44,15 @@ namespace MelsConsignment
 
             var document = new BsonDocument
             {
-                {"last_name", LastNameTB.Text },
-                {"first_name", FirstNameTB.Text},
-                {"type", TypeCMB.Text },
-                {"manufacturer", ManfTB.Text },
-                {"model", ModelTB.Text },
-                {"chambering", CalTB.Text },
-                {"page", PageTB.Text },
-                {"shelf", ShelfTB.Text },
-                {"take", TakeTB.Text }
+                {"last_name", LastNameTB.Text.ToUpper() },
+                {"first_name", FirstNameTB.Text.ToUpper()},
+                {"type", TypeCMB.Text.ToUpper()},
+                {"manufacturer", ManfTB.Text.ToUpper() },
+                {"model", ModelTB.Text.ToUpper() },
+                {"chambering", CalTB.Text.ToUpper()},
+                {"page", PageTB.Text.ToUpper() },
+                {"shelf", ShelfTB.Text.ToUpper()},
+                {"take", TakeTB.Text.ToUpper() }
             };
 
             collection.InsertOne(document);
